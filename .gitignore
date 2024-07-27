@@ -139,7 +139,7 @@ obj/
 [Dd]ebug/ 
 [Rr]elease/ 
 Ankh.NoLoad
-
+.vscode/
 #Tooling
 _ReSharper*/
 .resharper
