@@ -1,28 +1,26 @@
+﻿using Infrastructure.Service;
 using UnityEngine;
-using UnityEngine.InputSystem;
+using VContainer;
 
 namespace Core.Player
 {
     [RequireComponent(typeof(Rigidbody2D))]
     public class PlayerMovement : MonoBehaviour
     {
-        [SerializeField] private float _force;
-        
+        private IInputService _inputService;
         private Rigidbody2D _rigidbody;
-        
+
+        [Inject]
+        public void Construct(IInputService inputService) => 
+            _inputService = inputService;
+
         private void Start()
         {
             _rigidbody = GetComponent<Rigidbody2D>();
-            InputSystem.EnableDevice(Accelerometer.current);
+            _inputService.OnMove += Move;
         }
 
-        private void OnDestroy() =>
-            InputSystem.DisableDevice(Accelerometer.current);
-        
-        private void Update()
-        {
-            Vector3 accelerotion = Accelerometer.current.acceleration.ReadValue();
-            _rigidbody.velocity = new Vector2(accelerotion.x * _force, 0f);
-        }
+        private void Move(float direction) => 
+            _rigidbody.velocity = new Vector2(direction * 3, _rigidbody.velocity.y);
     }
 }

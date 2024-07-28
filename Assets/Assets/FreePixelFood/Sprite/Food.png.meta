@@ -696,9 +696,9 @@ TextureImporter:
       name: Pineapple
       rect:
         serializedVersion: 2
-        x: 32
+        x: 34
         y: 80
-        width: 16
+        width: 10
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -1661,7 +1661,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 87494281fd5625d47971b5470fc3c653
     internalID: 0
     vertices: []
     indices: 
