@@ -7,6 +7,9 @@ namespace UI
 {
     public class Mediator : MonoBehaviour
     {
+        [SerializeField] private GameObject _pauseMenu;
+        [SerializeField] private GameObject _gameOverMenu;
+        
         private FSM _fsm;
 
         [Inject]
@@ -14,23 +17,26 @@ namespace UI
         {
             _fsm = fsm;
         }
-        
+
         public void ShowPauseMenu() =>
-            Debug.Log("ShowPauseMenu");
+            _pauseMenu.SetActive(true);
 
         public void ShowGameOverMenu() =>
-            Debug.Log("ShowGameOverMenu");
+            _gameOverMenu.SetActive(true);
 
         public void HidePauseMenu() =>
-            Debug.Log("HidePauseMenu");
+            _pauseMenu.SetActive(false);
 
         public void HideGameOverMenu() =>
-            Debug.Log("HideGameOverMenu");
+            _gameOverMenu.SetActive(false);
 
         public void SetPause() =>
             _fsm.SetState<Pause>();
         
         public void SetPlayMode() =>
             _fsm.SetState<Play>();
+
+        public int GetScore() => 
+            100;
     }
 }

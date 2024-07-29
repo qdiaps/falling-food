@@ -3,7 +3,7 @@ guid: 3d2ceb4de2a713147abc06da178fec62
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -20,9 +20,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -31,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -40,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -54,13 +57,31 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -69,11 +90,80 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: ui-large-buttons-horizontal_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 48
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 3, y: 5, z: 3, w: 3}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d392d523519c8fb469825fa13e6d10a9
+      internalID: 1967262689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui-large-buttons-horizontal_1
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 32
+        width: 48
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 3, y: 3, z: 3, w: 5}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbd1d042a68117f4a82d6257a5b0b84c
+      internalID: 1126363790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -84,9 +174,59 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-  spritePackingTag: 
+    nameFileIdTable:
+      ui-large-buttons-horizontal_0: 1967262689
+      ui-large-buttons-horizontal_1: 1126363790
+      ui-large-buttons-horizontal_10: 1714107090
+      ui-large-buttons-horizontal_11: 2001636357
+      ui-large-buttons-horizontal_12: 881598956
+      ui-large-buttons-horizontal_13: 119460407
+      ui-large-buttons-horizontal_14: -1648134045
+      ui-large-buttons-horizontal_15: 766582848
+      ui-large-buttons-horizontal_16: -1243576134
+      ui-large-buttons-horizontal_17: 1537040483
+      ui-large-buttons-horizontal_18: -1022736944
+      ui-large-buttons-horizontal_19: -874141801
+      ui-large-buttons-horizontal_2: -1411824748
+      ui-large-buttons-horizontal_20: -923941107
+      ui-large-buttons-horizontal_21: -1173637937
+      ui-large-buttons-horizontal_22: -1744678682
+      ui-large-buttons-horizontal_23: 1477565775
+      ui-large-buttons-horizontal_24: 1555352204
+      ui-large-buttons-horizontal_25: -1261154664
+      ui-large-buttons-horizontal_26: -1871559602
+      ui-large-buttons-horizontal_27: 1786614197
+      ui-large-buttons-horizontal_28: 300589369
+      ui-large-buttons-horizontal_29: 1784623763
+      ui-large-buttons-horizontal_3: 239586310
+      ui-large-buttons-horizontal_30: 1629032311
+      ui-large-buttons-horizontal_31: -761913369
+      ui-large-buttons-horizontal_32: 2041739516
+      ui-large-buttons-horizontal_33: 396058704
+      ui-large-buttons-horizontal_34: 522610148
+      ui-large-buttons-horizontal_35: 1355422339
+      ui-large-buttons-horizontal_36: 727021080
+      ui-large-buttons-horizontal_37: -169528991
+      ui-large-buttons-horizontal_38: -1606355661
+      ui-large-buttons-horizontal_39: 1388126650
+      ui-large-buttons-horizontal_4: -1541830993
+      ui-large-buttons-horizontal_40: -348598931
+      ui-large-buttons-horizontal_41: 1375933161
+      ui-large-buttons-horizontal_42: -910556413
+      ui-large-buttons-horizontal_43: -1574267500
+      ui-large-buttons-horizontal_44: -171118905
+      ui-large-buttons-horizontal_45: -698531309
+      ui-large-buttons-horizontal_46: -288387783
+      ui-large-buttons-horizontal_47: -417824443
+      ui-large-buttons-horizontal_48: 805997847
+      ui-large-buttons-horizontal_49: -898779884
+      ui-large-buttons-horizontal_5: -1275909857
+      ui-large-buttons-horizontal_6: 716220836
+      ui-large-buttons-horizontal_7: 578227416
+      ui-large-buttons-horizontal_8: 424071383
+      ui-large-buttons-horizontal_9: 384975328
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
