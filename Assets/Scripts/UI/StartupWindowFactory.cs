@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using VContainer;
 using VContainer.Unity;
 
@@ -8,8 +9,13 @@ namespace UI
     {
         private const string LaunchWindow = "UI/LaunchWindow";
         private const string LearnWindow = "UI/LearnWindow";
+        
+        private readonly Mediator _mediator;
 
-        public StartupWindowFactory(IObjectResolver container) : base(container) { }
+        public StartupWindowFactory(IObjectResolver container, Mediator mediator) : base(container)
+        {
+            _mediator = mediator;
+        }
 
         public GameObject CreateLaunchWindow() => 
             Create(LaunchWindow);
@@ -19,8 +25,13 @@ namespace UI
 
         private GameObject Create(string path)
         {
-            return _container
+            var window = _container
                 .Instantiate(Resources.Load<GameObject>(path));
+            window
+                .GetComponentInChildren<Button>()
+                .onClick
+                .AddListener(_mediator.SetPlayMode);
+            return window;
         }
     }
 }

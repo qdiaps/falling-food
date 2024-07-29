@@ -1,6 +1,8 @@
 using Core.Food;
 using Core.Player;
 using Infrastructure.Boot;
+using Infrastructure.FiniteStateMachine;
+using Infrastructure.Game;
 using Infrastructure.Service;
 using UI;
 using UnityEngine;
@@ -19,6 +21,9 @@ public class GameplayLifetimeScope : LifetimeScope
         RegisterFactories(builder);
         RegisterGeneratorFoods(builder);
         RegisterInput(builder);
+        RegisterFsm(builder);
+        RegisterMediator(builder);
+        RegisterGameStateHandler(builder);
         RegisterBootstrapper(builder);
     }
 
@@ -30,7 +35,7 @@ public class GameplayLifetimeScope : LifetimeScope
             .RegisterInstance(_generatorFoodsConfig);
     }
 
-    private static void RegisterFactories(IContainerBuilder builder)
+    private void RegisterFactories(IContainerBuilder builder)
     {
         builder
             .Register<StartupWindowFactory>(Lifetime.Singleton);
@@ -40,7 +45,7 @@ public class GameplayLifetimeScope : LifetimeScope
             .Register<FoodFactory>(Lifetime.Singleton);
     }
 
-    private static void RegisterGeneratorFoods(IContainerBuilder builder)
+    private void RegisterGeneratorFoods(IContainerBuilder builder)
     {
         builder
             .RegisterComponentInHierarchy<GeneratorFoods>()
@@ -57,7 +62,25 @@ public class GameplayLifetimeScope : LifetimeScope
                 .RegisterEntryPoint<MobileInputService>();
     }
 
-    private static void RegisterBootstrapper(IContainerBuilder builder)
+    private void RegisterFsm(IContainerBuilder builder)
+    {
+        builder
+            .Register<FSM>(Lifetime.Singleton);
+    }
+
+    private static void RegisterMediator(IContainerBuilder builder)
+    {
+        builder
+            .RegisterComponentInHierarchy<Mediator>();
+    }
+
+    private void RegisterGameStateHandler(IContainerBuilder builder)
+    {
+        builder
+            .RegisterEntryPoint<GameStateHandler>();
+    }
+
+    private void RegisterBootstrapper(IContainerBuilder builder)
     {
         builder
             .RegisterEntryPoint<Bootstrapper>();
