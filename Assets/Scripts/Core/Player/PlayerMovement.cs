@@ -1,4 +1,5 @@
-﻿using Infrastructure.Service;
+﻿using System;
+using Infrastructure.Service;
 using UnityEngine;
 using VContainer;
 
@@ -19,6 +20,9 @@ namespace Core.Player
             _rigidbody = GetComponent<Rigidbody2D>();
             _inputService.OnMove += Move;
         }
+
+        private void OnDestroy() => 
+            _inputService.OnMove -= Move;
 
         private void Move(float direction) => 
             _rigidbody.velocity = new Vector2(direction * 3, _rigidbody.velocity.y);

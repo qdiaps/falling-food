@@ -51,12 +51,10 @@ public class GameplayLifetimeScope : LifetimeScope
     {
         if (Application.isEditor)
             builder
-                .RegisterComponentOnNewGameObject<EditorInputService>(Lifetime.Singleton, "EditorInputService")
-                .AsImplementedInterfaces();
+                .RegisterEntryPoint<EditorInputService>();
         else
             builder
-                .RegisterComponentOnNewGameObject<MobileInputService>(Lifetime.Singleton, "MobileInputService")
-                .AsImplementedInterfaces();
+                .RegisterEntryPoint<MobileInputService>();
     }
 
     private static void RegisterBootstrapper(IContainerBuilder builder)

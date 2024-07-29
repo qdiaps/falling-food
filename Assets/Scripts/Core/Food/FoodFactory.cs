@@ -8,9 +8,9 @@ namespace Core.Food
     {
         public FoodFactory(IObjectResolver container) : base(container) { }
 
-        public void Create(GameObject prefab, Vector3 position)
+        public GameObject Create(GameObject prefab, Vector3 position)
         {
-            _container
+            return _container
                 .Instantiate(prefab, position, Quaternion.identity);
         }
     }

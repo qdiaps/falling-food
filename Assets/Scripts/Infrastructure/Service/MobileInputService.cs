@@ -1,20 +1,20 @@
 ﻿using System;
-using UnityEngine;
 using UnityEngine.InputSystem;
+using VContainer.Unity;
 
 namespace Infrastructure.Service
 {
-    public class MobileInputService : MonoBehaviour, IInputService
+    public class MobileInputService : IInputService, IStartable, IDisposable, ITickable
     {
         public event Action<float> OnMove;
 
         public void Start() => 
             InputSystem.EnableDevice(Accelerometer.current);
 
-        public void OnDestroy() => 
+        public void Dispose() => 
             InputSystem.DisableDevice(Accelerometer.current);
 
-        public void Update()
+        public void Tick()
         {
             var input = Accelerometer.current.acceleration.ReadValue();
             OnMove?.Invoke(input.x);

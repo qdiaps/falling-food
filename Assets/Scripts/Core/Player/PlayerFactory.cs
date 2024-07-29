@@ -10,9 +10,9 @@ namespace Core.Player
         
         public PlayerFactory(IObjectResolver container) : base(container) { }
 
-        public void Create()
+        public GameObject Create()
         {
-            _container
+            return _container
                 .Instantiate(Resources.Load<GameObject>(Player));
         }
     }

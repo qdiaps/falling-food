@@ -10,9 +10,9 @@ namespace UI
 
         public StartupWindowFactory(IObjectResolver container) : base(container) { }
 
-        public void Create()
+        public GameObject Create()
         {
-            _container
+            return _container
                 .Instantiate(Resources.Load<GameObject>(LaunchWindow));
         }
     }
