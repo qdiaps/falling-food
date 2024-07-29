@@ -1,6 +1,7 @@
 ﻿using Infrastructure.FiniteStateMachine;
 using Infrastructure.Game;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using VContainer;
 
 namespace UI
@@ -38,5 +39,11 @@ namespace UI
 
         public int GetScore() => 
             100;
+
+        public void Restart() =>
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+        public void Exit() =>
+            Application.Quit();
     }
 }
