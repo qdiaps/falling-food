@@ -4,12 +4,12 @@ using VContainer.Unity;
 
 namespace Infrastructure.Game
 {
-    public class GameStateHandler : IInitializable
+    public class GameStateInitializer : IInitializable
     {
         private readonly FSM _fsm;
         private readonly Mediator _mediator;
 
-        public GameStateHandler(FSM fsm, Mediator mediator)
+        public GameStateInitializer(FSM fsm, Mediator mediator)
         {
             _fsm = fsm;
             _mediator = mediator;
@@ -20,11 +20,9 @@ namespace Infrastructure.Game
             _fsm.AddState(new InitPause(_fsm));
             _fsm.AddState(new Pause(_fsm, _mediator));
             _fsm.AddState(new Play(_fsm));
+            _fsm.AddState(new GameOver(_fsm, _mediator));
 
-            SetState<InitPause>();
+            _fsm.SetState<InitPause>();
         }
-
-        public void SetState<T>() where T : State => 
-            _fsm.SetState<T>();
     }
 }
