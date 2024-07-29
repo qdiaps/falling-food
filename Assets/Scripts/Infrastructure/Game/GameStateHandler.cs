@@ -1,16 +1,15 @@
-﻿using Core.Food;
-using Infrastructure.FiniteStateMachine;
+﻿using Infrastructure.FiniteStateMachine;
 using UI;
 using VContainer.Unity;
 
 namespace Infrastructure.Game
 {
-    public class GameStateInitializer : IInitializable
+    public class GameStateHandler : IInitializable
     {
         private readonly FSM _fsm;
         private readonly Mediator _mediator;
 
-        public GameStateInitializer(FSM fsm, Mediator mediator)
+        public GameStateHandler(FSM fsm, Mediator mediator)
         {
             _fsm = fsm;
             _mediator = mediator;
@@ -21,9 +20,11 @@ namespace Infrastructure.Game
             _fsm.AddState(new InitPause(_fsm));
             _fsm.AddState(new Pause(_fsm, _mediator));
             _fsm.AddState(new Play(_fsm));
-            _fsm.AddState(new GameOver(_fsm, _mediator));
 
-            _fsm.SetState<InitPause>();
+            SetState<InitPause>();
         }
+
+        public void SetState<T>() where T : State => 
+            _fsm.SetState<T>();
     }
 }

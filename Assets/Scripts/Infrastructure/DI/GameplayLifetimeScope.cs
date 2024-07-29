@@ -77,7 +77,7 @@ public class GameplayLifetimeScope : LifetimeScope
     private void RegisterGameStateHandler(IContainerBuilder builder)
     {
         builder
-            .RegisterEntryPoint<GameStateInitializer>();
+            .RegisterEntryPoint<GameStateHandler>();
     }
 
     private void RegisterBootstrapper(IContainerBuilder builder)

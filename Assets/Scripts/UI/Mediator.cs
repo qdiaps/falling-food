@@ -17,15 +17,9 @@ namespace UI
         
         public void ShowPauseMenu() =>
             Debug.Log("ShowPauseMenu");
-        
-        public void ShowGameOverMenu() =>
-            Debug.Log("ShowGameOverMenu");
 
         public void HidePauseMenu() =>
             Debug.Log("HidePauseMenu");
-        
-        public void HideGameOverMenu() =>
-            Debug.Log("HideGameOverMenu");
 
         public void SetPause() =>
             _fsm.SetState<Pause>();

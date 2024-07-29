@@ -12,9 +12,7 @@ GameObject:
   - component: {fileID: 6595623236793328156}
   - component: {fileID: 1493952038327456775}
   - component: {fileID: 3605323227724438016}
-  - component: {fileID: -4227898920527066438}
   - component: {fileID: 8656755538690244835}
-  - component: {fileID: -2106103848199116588}
   m_Layer: 0
   m_Name: Chicken
   m_TagString: Untagged
@@ -151,41 +149,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!58 &-4227898920527066438
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6796348901196495645}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
 --- !u!114 &8656755538690244835
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,17 +159,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 480c664c04da4dffac0bf600da375ab7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &-2106103848199116588
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6796348901196495645}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ea3882df740432fa0c72fcb47c91386, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
