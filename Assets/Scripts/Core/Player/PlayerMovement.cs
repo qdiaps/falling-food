@@ -1,5 +1,4 @@
-﻿using System;
-using Infrastructure.Service;
+﻿using Infrastructure.Service.Input;
 using UnityEngine;
 using VContainer;
 

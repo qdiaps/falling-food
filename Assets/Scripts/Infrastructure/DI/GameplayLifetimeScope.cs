@@ -3,7 +3,8 @@ using Core.Player;
 using Infrastructure.Boot;
 using Infrastructure.FiniteStateMachine;
 using Infrastructure.Game;
-using Infrastructure.Service;
+using Infrastructure.Service.Input;
+using Infrastructure.Service.Storage;
 using UI;
 using UnityEngine;
 using VContainer;
@@ -19,11 +20,11 @@ public class GameplayLifetimeScope : LifetimeScope
     {
         RegisterConfigs(builder);
         RegisterFactories(builder);
+        RegisterStorageService(builder);
         RegisterGeneratorFoods(builder);
         RegisterInput(builder);
         RegisterFsm(builder);
         RegisterMediator(builder);
-        RegisterGameStateHandler(builder);
         RegisterBootstrapper(builder);
     }
 
@@ -43,6 +44,13 @@ public class GameplayLifetimeScope : LifetimeScope
             .Register<PlayerFactory>(Lifetime.Singleton);
         builder
             .Register<FoodFactory>(Lifetime.Singleton);
+    }
+
+    private static void RegisterStorageService(IContainerBuilder builder)
+    {
+        builder
+            .Register<JsonToFileStorageService>(Lifetime.Singleton)
+            .As<IStorageService>();
     }
 
     private void RegisterGeneratorFoods(IContainerBuilder builder)
@@ -66,18 +74,14 @@ public class GameplayLifetimeScope : LifetimeScope
     {
         builder
             .Register<FSM>(Lifetime.Singleton);
+        builder
+            .RegisterEntryPoint<GameStateInitializer>();
     }
 
     private static void RegisterMediator(IContainerBuilder builder)
     {
         builder
             .RegisterComponentInHierarchy<Mediator>();
-    }
-
-    private void RegisterGameStateHandler(IContainerBuilder builder)
-    {
-        builder
-            .RegisterEntryPoint<GameStateInitializer>();
     }
 
     private void RegisterBootstrapper(IContainerBuilder builder)

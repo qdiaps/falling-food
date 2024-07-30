@@ -2,7 +2,7 @@
 using UnityEngine.InputSystem;
 using VContainer.Unity;
 
-namespace Infrastructure.Service
+namespace Infrastructure.Service.Input
 {
     public class MobileInputService : IInputService, IStartable, IDisposable, ITickable
     {

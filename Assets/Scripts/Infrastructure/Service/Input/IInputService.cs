@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Infrastructure.Service
+namespace Infrastructure.Service.Input
 {
     public interface IInputService
     {
