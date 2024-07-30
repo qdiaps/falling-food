@@ -20,9 +20,7 @@ namespace Infrastructure.Service.Storage
             if (File.Exists(path) == false)
                 return default;
             using var fileStream = new StreamReader(path);
-            string json = fileStream.ReadToEnd();
-            var data = JsonConvert.DeserializeObject<T>(json);
-            return data;
+            return JsonConvert.DeserializeObject<T>(fileStream.ReadToEnd());
         }
 
         private string CreatePath(string key) =>

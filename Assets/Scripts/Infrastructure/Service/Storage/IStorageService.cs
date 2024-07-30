@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Infrastructure.Service.Storage
+﻿namespace Infrastructure.Service.Storage
 {
     public interface IStorageService
     {
