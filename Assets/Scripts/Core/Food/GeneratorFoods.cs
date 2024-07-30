@@ -9,6 +9,7 @@ namespace Core.Food
         private FoodFactory _factory;
         private FoodConfig _foodConfig;
         private GeneratorFoodsConfig _generatorFoodsConfig;
+        private float _currentGravityScale = 0.5f;
 
         [Inject]
         public void Construct(FoodFactory factory, FoodConfig foodConfig, GeneratorFoodsConfig generatorFoodsConfig)
@@ -25,7 +26,10 @@ namespace Core.Food
         {
             while (true)
             {
-                _factory.Create(GetRandomPrefab(), GetRandomPosition());
+                _factory.Create(GetRandomPrefab(), GetRandomPosition())
+                    .GetComponent<Rigidbody2D>()
+                    .gravityScale = _currentGravityScale;
+                _currentGravityScale += 0.01f;
                 yield return new WaitForSeconds(1f);
             }
         }

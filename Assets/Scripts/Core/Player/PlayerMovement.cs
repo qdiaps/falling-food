@@ -24,6 +24,6 @@ namespace Core.Player
             _inputService.OnMove -= Move;
 
         private void Move(float direction) => 
-            _rigidbody.velocity = new Vector2(direction * 3, _rigidbody.velocity.y);
+            _rigidbody.velocity = new Vector2(direction * 5, _rigidbody.velocity.y);
     }
 }
