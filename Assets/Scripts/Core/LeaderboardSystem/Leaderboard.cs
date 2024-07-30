@@ -29,6 +29,7 @@ namespace Core.LeaderboardSystem
             {
                 leaderboard[MaxLineLeaderboard - 1] = score;
                 Array.Sort(leaderboard);
+                Array.Reverse(leaderboard);
                 _storageService.Save(LeaderboardFileName, leaderboard);
             }
         }
