@@ -7,6 +7,7 @@ namespace Infrastructure.FiniteStateMachine
     public class FSM
     {
         public State CurrentState { get; private set; }
+        public State PastState { get; private set; }
 
         private readonly Dictionary<Type, State> _states = new();
 
@@ -25,6 +26,7 @@ namespace Infrastructure.FiniteStateMachine
                 Debug.LogWarning("Происходит смена состояние на такое какое и было.");
             else if (_states.TryGetValue(type, out var newState))
             {
+                PastState = CurrentState;
                 CurrentState?.Exit();
                 CurrentState = newState;
                 CurrentState.Enter();

@@ -1,4 +1,5 @@
 ﻿using Core.Food;
+using Core.LeaderboardSystem;
 using Core.Player;
 using UI;
 using UnityEngine;
@@ -13,13 +14,15 @@ namespace Infrastructure.Boot
         private readonly PlayerFactory _playerFactory;
         private readonly StartupWindowFactory _startupWindowFactory;
         private readonly IGeneratorFoods _generatorFoods;
+        private readonly Leaderboard _leaderboard;
 
         public Bootstrapper(PlayerFactory playerFactory, StartupWindowFactory startupWindowFactory, 
-            IGeneratorFoods generatorFoods)
+            IGeneratorFoods generatorFoods, Leaderboard leaderboard)
         {
             _playerFactory = playerFactory;
             _startupWindowFactory = startupWindowFactory;
             _generatorFoods = generatorFoods;
+            _leaderboard = leaderboard;
         }
 
         public void Initialize()
@@ -28,8 +31,9 @@ namespace Infrastructure.Boot
                 CreateLaunchWindow();
             else
             {
-                PlayerPrefs.SetInt(IsFirstRunning, 0);
                 CreateLearnWindow();
+                PlayerPrefs.SetInt(IsFirstRunning, 0);
+                _leaderboard.SaveDefaultLeaderboard();
             }
             CreatePlayer();
             StartGeneratorFoods();

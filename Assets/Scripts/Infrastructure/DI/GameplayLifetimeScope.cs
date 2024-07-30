@@ -1,4 +1,5 @@
 using Core.Food;
+using Core.LeaderboardSystem;
 using Core.Player;
 using Infrastructure.Boot;
 using Infrastructure.FiniteStateMachine;
@@ -20,6 +21,7 @@ public class GameplayLifetimeScope : LifetimeScope
     {
         RegisterConfigs(builder);
         RegisterFactories(builder);
+        RegisterLeaderboard(builder);
         RegisterStorageService(builder);
         RegisterGeneratorFoods(builder);
         RegisterInput(builder);
@@ -46,7 +48,13 @@ public class GameplayLifetimeScope : LifetimeScope
             .Register<FoodFactory>(Lifetime.Singleton);
     }
 
-    private static void RegisterStorageService(IContainerBuilder builder)
+    private void RegisterLeaderboard(IContainerBuilder builder)
+    {
+        builder
+            .Register<Leaderboard>(Lifetime.Singleton);
+    }
+
+    private void RegisterStorageService(IContainerBuilder builder)
     {
         builder
             .Register<JsonToFileStorageService>(Lifetime.Singleton)
@@ -78,7 +86,7 @@ public class GameplayLifetimeScope : LifetimeScope
             .RegisterEntryPoint<GameStateInitializer>();
     }
 
-    private static void RegisterMediator(IContainerBuilder builder)
+    private void RegisterMediator(IContainerBuilder builder)
     {
         builder
             .RegisterComponentInHierarchy<Mediator>();

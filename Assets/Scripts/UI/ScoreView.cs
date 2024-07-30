@@ -12,7 +12,7 @@ namespace UI
         
         private void OnEnable()
         {
-            var score = _mediator.GetScore();
+            var score = _mediator.GetLastScore();
             UpdateScore(score);
         }
 

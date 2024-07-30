@@ -19,7 +19,7 @@ namespace Infrastructure.Game
         {
             _fsm.AddState(new InitPause(_fsm));
             _fsm.AddState(new Pause(_fsm, _mediator));
-            _fsm.AddState(new Play(_fsm));
+            _fsm.AddState(new Play(_fsm, _mediator));
             _fsm.AddState(new GameOver(_fsm, _mediator));
 
             _fsm.SetState<InitPause>();
