@@ -5,21 +5,13 @@ namespace UI
 {
     public class ScoreView : MonoBehaviour
     {
-        [SerializeField] private TMP_Text _scoreText;
-        [SerializeField] private Mediator _mediator;
-        // [SerializeField] private int _fontSizeNewRecord = 75;
-        [SerializeField] private int _fontSizeDefault = 90;
+        [SerializeField] private TMP_Text _score;
+        [SerializeField] private TMP_Text _scoreResult;
         
-        private void OnEnable()
-        {
-            var score = _mediator.GetLastScore();
-            UpdateScore(score);
-        }
+        public void UpdateScore(int score) => 
+            _score.text = $"{score}";
 
-        private void UpdateScore(int score)
-        {
-            _scoreText.fontSize = _fontSizeDefault;
-            _scoreText.text = $"Счёт: {score}";
-        }
+        public void UpdateResultScore(int score) => 
+            _scoreResult.text = $"Счёт: {score}";
     }
 }

@@ -1,6 +1,7 @@
 using Core.Food;
 using Core.LeaderboardSystem;
 using Core.Player;
+using Core.Score;
 using Infrastructure.Boot;
 using Infrastructure.FiniteStateMachine;
 using Infrastructure.Game;
@@ -19,6 +20,7 @@ public class GameplayLifetimeScope : LifetimeScope
     
     protected override void Configure(IContainerBuilder builder)
     {
+        RegisterScore(builder);
         RegisterConfigs(builder);
         RegisterFactories(builder);
         RegisterLeaderboard(builder);
@@ -28,6 +30,14 @@ public class GameplayLifetimeScope : LifetimeScope
         RegisterFsm(builder);
         RegisterMediator(builder);
         RegisterBootstrapper(builder);
+    }
+
+    private static void RegisterScore(IContainerBuilder builder)
+    {
+        builder
+            .RegisterComponentInHierarchy<ScoreView>();
+        builder
+            .Register<ScoreHandler>(Lifetime.Singleton);
     }
 
     private void RegisterConfigs(IContainerBuilder builder)

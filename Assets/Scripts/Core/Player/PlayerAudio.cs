@@ -2,18 +2,18 @@
 
 namespace Core.Player
 {
-    [RequireComponent(typeof(AudioSource), typeof(PlayerCollider))]
+    [RequireComponent(typeof(AudioSource))]
     public class PlayerAudio : MonoBehaviour
     {
         [SerializeField] private AudioClip _pickupAudio;
+        [SerializeField] private PlayerCollider _playerCollider;
 
         private AudioSource _audio;
 
         private void Start()
         {
             _audio = GetComponent<AudioSource>();
-            GetComponent<PlayerCollider>()
-                .OnPickupFood += Pickup;
+            _playerCollider.OnPickupFood += Pickup;
         }
 
         private void Pickup() =>

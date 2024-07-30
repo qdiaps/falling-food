@@ -16,6 +16,8 @@ namespace Infrastructure.Game
         {
             base.Enter();
             _mediator.ShowGameOverMenu();
+            _mediator.UpdateScoreResult();
+            _mediator.SaveScore();
         }
 
         public override void Exit()
