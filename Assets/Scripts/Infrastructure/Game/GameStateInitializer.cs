@@ -7,20 +7,20 @@ namespace Infrastructure.Game
     public class GameStateInitializer : IInitializable
     {
         private readonly FSM _fsm;
-        private readonly Mediator _mediator;
+        private readonly GameplayMediator _gameplayMediator;
 
-        public GameStateInitializer(FSM fsm, Mediator mediator)
+        public GameStateInitializer(FSM fsm, GameplayMediator gameplayMediator)
         {
             _fsm = fsm;
-            _mediator = mediator;
+            _gameplayMediator = gameplayMediator;
         }
 
         public void Initialize()
         {
             _fsm.AddState(new InitPause(_fsm));
-            _fsm.AddState(new Pause(_fsm, _mediator));
-            _fsm.AddState(new Play(_fsm, _mediator));
-            _fsm.AddState(new GameOver(_fsm, _mediator));
+            _fsm.AddState(new Pause(_fsm, _gameplayMediator));
+            _fsm.AddState(new Play(_fsm, _gameplayMediator));
+            _fsm.AddState(new GameOver(_fsm, _gameplayMediator));
 
             _fsm.SetState<InitPause>();
         }

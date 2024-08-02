@@ -1,12 +1,11 @@
 using Core.Food;
 using Core.LeaderboardSystem;
-using Core.Player;
 using Core.Score;
 using Infrastructure.Boot;
+using Infrastructure.Factory;
 using Infrastructure.FiniteStateMachine;
 using Infrastructure.Game;
 using Infrastructure.Service.Input;
-using Infrastructure.Service.Storage;
 using UI;
 using UnityEngine;
 using VContainer;
@@ -24,12 +23,11 @@ public class GameplayLifetimeScope : LifetimeScope
         RegisterConfigs(builder);
         RegisterFactories(builder);
         RegisterLeaderboard(builder);
-        RegisterStorageService(builder);
         RegisterGeneratorFoods(builder);
         RegisterInput(builder);
         RegisterFsm(builder);
         RegisterMediator(builder);
-        RegisterBootstrapper(builder);
+        RegisterEntryPoint(builder);
     }
 
     private static void RegisterScore(IContainerBuilder builder)
@@ -51,9 +49,7 @@ public class GameplayLifetimeScope : LifetimeScope
     private void RegisterFactories(IContainerBuilder builder)
     {
         builder
-            .Register<StartupWindowFactory>(Lifetime.Singleton);
-        builder
-            .Register<PlayerFactory>(Lifetime.Singleton);
+            .Register<ResourcesFactory>(Lifetime.Singleton);
         builder
             .Register<FoodFactory>(Lifetime.Singleton);
     }
@@ -62,13 +58,6 @@ public class GameplayLifetimeScope : LifetimeScope
     {
         builder
             .Register<Leaderboard>(Lifetime.Singleton);
-    }
-
-    private void RegisterStorageService(IContainerBuilder builder)
-    {
-        builder
-            .Register<JsonToFileStorageService>(Lifetime.Singleton)
-            .As<IStorageService>();
     }
 
     private void RegisterGeneratorFoods(IContainerBuilder builder)
@@ -99,12 +88,12 @@ public class GameplayLifetimeScope : LifetimeScope
     private void RegisterMediator(IContainerBuilder builder)
     {
         builder
-            .RegisterComponentInHierarchy<Mediator>();
+            .RegisterComponentInHierarchy<GameplayMediator>();
     }
 
-    private void RegisterBootstrapper(IContainerBuilder builder)
+    private void RegisterEntryPoint(IContainerBuilder builder)
     {
         builder
-            .RegisterEntryPoint<Bootstrapper>();
+            .RegisterEntryPoint<GameplayEntryPoint>();
     }
 }

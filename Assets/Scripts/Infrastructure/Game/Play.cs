@@ -5,16 +5,16 @@ namespace Infrastructure.Game
 {
     public class Play : State
     {
-        private readonly Mediator _mediator;
-        public Play(FSM fsm, Mediator mediator) : base(fsm)
+        private readonly GameplayMediator _gameplayMediator;
+        public Play(FSM fsm, GameplayMediator gameplayMediator) : base(fsm)
         {
-            _mediator = mediator;
+            _gameplayMediator = gameplayMediator;
         }
 
         public override void Enter()
         {
             if (_fsm.PastState.GetType() == typeof(GameOver))
-                _mediator.Restart();
+                _gameplayMediator.Restart();
         }
     }
 }

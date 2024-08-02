@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Infrastructure.Factory;
+using UnityEngine;
 using VContainer;
 using VContainer.Unity;
 

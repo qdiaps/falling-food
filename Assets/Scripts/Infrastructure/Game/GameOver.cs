@@ -5,25 +5,25 @@ namespace Infrastructure.Game
 {
     public class GameOver : InitPause
     {
-        private readonly Mediator _mediator;
+        private readonly GameplayMediator _gameplayMediator;
 
-        public GameOver(FSM fsm, Mediator mediator) : base(fsm)
+        public GameOver(FSM fsm, GameplayMediator gameplayMediator) : base(fsm)
         {
-            _mediator = mediator;
+            _gameplayMediator = gameplayMediator;
         }
 
         public override void Enter()
         {
             base.Enter();
-            _mediator.ShowGameOverMenu();
-            _mediator.UpdateScoreResult();
-            _mediator.SaveScore();
+            _gameplayMediator.ShowGameOverMenu();
+            _gameplayMediator.UpdateScoreResult();
+            _gameplayMediator.SaveScore();
         }
 
         public override void Exit()
         {
             base.Exit();
-            _mediator.HideGameOverMenu();
+            _gameplayMediator.HideGameOverMenu();
         }
     }
 }

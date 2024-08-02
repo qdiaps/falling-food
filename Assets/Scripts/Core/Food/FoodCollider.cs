@@ -14,13 +14,13 @@ namespace Core.Food
         public event Action OnPickupFood;
         
         private FSM _gameStateHandler;
-        private Mediator _mediator;
+        private GameplayMediator _gameplayMediator;
 
         [Inject]
-        public void Construct(FSM gameStateHandler, Mediator mediator)
+        public void Construct(FSM gameStateHandler, GameplayMediator gameplayMediator)
         {
-            _mediator = mediator;
-            OnPickupFood += _mediator.UpdateScore;
+            _gameplayMediator = gameplayMediator;
+            OnPickupFood += _gameplayMediator.UpdateScore;
             _gameStateHandler = gameStateHandler;
         }
 

@@ -8,18 +8,18 @@ namespace UI
     {
         [SerializeField] private TMP_Text _leaderboardView;
         
-        private Mediator _mediator;
+        private GameplayMediator _gameplayMediator;
 
         [Inject]
-        public void Construct(Mediator mediator) => 
-            _mediator = mediator;
+        public void Construct(GameplayMediator gameplayMediator) => 
+            _gameplayMediator = gameplayMediator;
 
         private void OnEnable() => 
             UpdateLeaderboard();
 
         private void UpdateLeaderboard()
         {
-            var leaderboard = _mediator.GetLeaderboardScore();
+            var leaderboard = _gameplayMediator.GetLeaderboardScore();
             _leaderboardView.text = "";
             for (int i = 0; i < leaderboard.Length; i++)
             {

@@ -5,23 +5,23 @@ namespace Infrastructure.Game
 {
     public class Pause : InitPause
     {
-        private readonly Mediator _mediator;
+        private readonly GameplayMediator _gameplayMediator;
 
-        public Pause(FSM fsm, Mediator mediator) : base(fsm)
+        public Pause(FSM fsm, GameplayMediator gameplayMediator) : base(fsm)
         {
-            _mediator = mediator;
+            _gameplayMediator = gameplayMediator;
         }
 
         public override void Enter()
         {
             base.Enter();
-            _mediator.ShowPauseMenu();
+            _gameplayMediator.ShowPauseMenu();
         }
 
         public override void Exit()
         {
             base.Exit();
-            _mediator.HidePauseMenu();
+            _gameplayMediator.HidePauseMenu();
         }
     }
 }
