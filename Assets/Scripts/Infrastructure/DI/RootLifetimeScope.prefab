@@ -48,3 +48,5 @@ MonoBehaviour:
     TypeName: 
   autoRun: 1
   autoInjectGameObjects: []
+  _editorSettingsConfig: {fileID: 11400000, guid: 6cd0f0df5cbf2c24a947f513a6d92321, type: 2}
+  _mobileSettingsConfig: {fileID: 11400000, guid: 0e110d8ddac226747ab044fe853e7d38, type: 2}

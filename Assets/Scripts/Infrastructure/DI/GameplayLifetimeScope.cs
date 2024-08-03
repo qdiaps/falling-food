@@ -6,6 +6,8 @@ using Infrastructure.Factory;
 using Infrastructure.FiniteStateMachine;
 using Infrastructure.Game;
 using Infrastructure.Service.Input;
+using Infrastructure.Service.Storage;
+using Infrastructure.Setting;
 using UI;
 using UnityEngine;
 using VContainer;
@@ -69,7 +71,10 @@ public class GameplayLifetimeScope : LifetimeScope
 
     private void RegisterInput(IContainerBuilder builder)
     {
-        if (Application.isEditor)
+        var input = new JsonToFileStorageService()
+            .Load<SettingsData>("settings.json")
+            .InputType;
+        if (input == InputType.Editor)
             builder
                 .RegisterEntryPoint<EditorInputService>();
         else
