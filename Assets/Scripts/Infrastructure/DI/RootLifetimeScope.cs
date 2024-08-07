@@ -1,3 +1,4 @@
+using Infrastructure.Service.Leaderboard;
 using Infrastructure.Service.Storage;
 using Infrastructure.Setting;
 using UnityEngine;
@@ -12,10 +13,17 @@ public class RootLifetimeScope : LifetimeScope
  
     protected override void Configure(IContainerBuilder builder)
     {
+        RegisterLeaderboard(builder);
         RegisterStorageService(builder);
         RegisterSettings(builder);
     }
-    
+
+    private static void RegisterLeaderboard(IContainerBuilder builder)
+    {
+        builder
+            .Register<LeaderboardService>(Lifetime.Singleton);
+    }
+
     private void RegisterStorageService(IContainerBuilder builder)
     {
         builder

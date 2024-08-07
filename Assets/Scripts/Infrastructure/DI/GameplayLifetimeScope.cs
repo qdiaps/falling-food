@@ -1,5 +1,4 @@
 using Core.Food;
-using Core.LeaderboardSystem;
 using Core.Score;
 using Infrastructure.Boot;
 using Infrastructure.Factory;
@@ -24,7 +23,6 @@ public class GameplayLifetimeScope : LifetimeScope
         RegisterScore(builder);
         RegisterConfigs(builder);
         RegisterFactories(builder);
-        RegisterLeaderboard(builder);
         RegisterGeneratorFoods(builder);
         RegisterInput(builder);
         RegisterFsm(builder);
@@ -54,12 +52,6 @@ public class GameplayLifetimeScope : LifetimeScope
             .Register<ResourcesFactory>(Lifetime.Singleton);
         builder
             .Register<FoodFactory>(Lifetime.Singleton);
-    }
-
-    private void RegisterLeaderboard(IContainerBuilder builder)
-    {
-        builder
-            .Register<Leaderboard>(Lifetime.Singleton);
     }
 
     private void RegisterGeneratorFoods(IContainerBuilder builder)

@@ -1,5 +1,4 @@
-﻿using Core.LeaderboardSystem;
-using Core.Score;
+﻿using Core.Score;
 using Infrastructure.FiniteStateMachine;
 using Infrastructure.Game;
 using UnityEngine;
@@ -15,14 +14,12 @@ namespace UI
         [SerializeField] private GameObject _gameOverMenu;
         
         private FSM _fsm;
-        private Leaderboard _leaderboard;
         private ScoreHandler _scoreHandler;
 
         [Inject]
-        public void Construct(FSM fsm, Leaderboard leaderboard, ScoreHandler scoreHandler)
+        public void Construct(FSM fsm, ScoreHandler scoreHandler)
         {
             _fsm = fsm;
-            _leaderboard = leaderboard;
             _scoreHandler = scoreHandler;
         }
 
@@ -52,9 +49,6 @@ namespace UI
 
         public void SaveScore() =>
             _scoreHandler.SaveScore();
-
-        public int[] GetLeaderboardScore() =>
-            _leaderboard.GetLeaderboardScore();
 
         public void Restart() =>
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);

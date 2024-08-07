@@ -1,4 +1,5 @@
 ﻿using Infrastructure.Service.Input;
+using Infrastructure.Service.Leaderboard;
 using Infrastructure.Setting;
 using VContainer;
 
@@ -7,10 +8,12 @@ namespace UI
     public class MenuMediator : Mediator
     {
         private Settings _settings;
+        private LeaderboardService _leaderboardService;
 
         [Inject]
-        public void Construct(Settings settings)
+        public void Construct(Settings settings, LeaderboardService leaderboardService)
         {
+            _leaderboardService = leaderboardService;
             _settings = settings;
         }
 
@@ -23,7 +26,13 @@ namespace UI
         public void ResetSettings() =>
             _settings.SetDefaultSettings();
 
+        public void ResetLeaderboard() =>
+            _leaderboardService.ResetValues();
+
         public void SaveSettings() =>
             _settings.Save();
+
+        public LeaderboardData[] GetLeaderboardData() =>
+            _leaderboardService.GetLeaderboardData();
     }
 }

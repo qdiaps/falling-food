@@ -1,29 +1,21 @@
-﻿using Core.LeaderboardSystem;
-using UnityEngine;
+﻿using Infrastructure.Service.Leaderboard;
 
 namespace Core.Score
 {
     public class ScoreHandler
     {
-        private readonly Leaderboard _leaderboard;
+        private readonly LeaderboardService _leaderboard;
 
         private int _currentScore;
         
-        public ScoreHandler(Leaderboard leaderboard) => 
+        public ScoreHandler(LeaderboardService leaderboard) => 
             _leaderboard = leaderboard;
 
-        public int AddScore()
-        {
+        public int AddScore() => 
             _currentScore += 10;
-            Debug.Log(_currentScore);
-            return _currentScore;
-        }
 
-        public int GetScore()
-        {
-            Debug.Log(_currentScore);
-            return _currentScore;
-        }
+        public int GetScore() => 
+            _currentScore;
 
         public void SaveScore() => 
             _leaderboard.AddScore(_currentScore);
