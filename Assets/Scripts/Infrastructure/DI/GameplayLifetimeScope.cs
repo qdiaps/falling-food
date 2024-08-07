@@ -66,12 +66,26 @@ public class GameplayLifetimeScope : LifetimeScope
         var input = new JsonToFileStorageService()
             .Load<SettingsData>("settings.json")
             .InputType;
-        if (input == InputType.Editor)
-            builder
-                .RegisterEntryPoint<EditorInputService>();
-        else
-            builder
-                .RegisterEntryPoint<MobileInputService>();
+        switch (input)
+        {
+            case InputType.Editor:
+                builder
+                    .Register<EditorInputService>(Lifetime.Singleton)
+                    .As<IInputService>();
+                break;
+            case InputType.MobileAcceleration:
+                builder
+                    .Register<MobileInputService>(Lifetime.Singleton)
+                    .As<IInputService>();
+                break;
+            case InputType.MobileButton:
+                builder
+                    .Register<ButtonInputService>(Lifetime.Singleton)
+                    .AsImplementedInterfaces();
+                builder
+                    .RegisterComponentInHierarchy<ButtonInputView>();
+                break;
+        }
     }
 
     private void RegisterFsm(IContainerBuilder builder)
