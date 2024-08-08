@@ -70,18 +70,15 @@ public class GameplayLifetimeScope : LifetimeScope
         {
             case InputType.Editor:
                 builder
-                    .Register<EditorInputService>(Lifetime.Singleton)
-                    .As<IInputService>();
+                    .RegisterEntryPoint<EditorInputService>();
                 break;
             case InputType.MobileAcceleration:
                 builder
-                    .Register<MobileInputService>(Lifetime.Singleton)
-                    .As<IInputService>();
+                    .RegisterEntryPoint<MobileInputService>();
                 break;
             case InputType.MobileButton:
                 builder
-                    .Register<ButtonInputService>(Lifetime.Singleton)
-                    .AsImplementedInterfaces();
+                    .RegisterEntryPoint<ButtonInputService>();
                 builder
                     .RegisterComponentInHierarchy<ButtonInputView>();
                 break;
