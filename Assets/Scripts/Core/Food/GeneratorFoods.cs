@@ -30,8 +30,9 @@ namespace Core.Food
                 _factory.Create(GetRandomPrefab(), GetRandomPosition())
                     .GetComponent<Rigidbody2D>()
                     .gravityScale = _currentGravityScale;
-                _currentGravityScale += 0.05f;
-                _currentSpeedGenerate -= 0.25f;
+                _currentGravityScale += 0.01f;
+                if (_currentSpeedGenerate > 2f)
+                    _currentSpeedGenerate -= 0.15f;
                 yield return new WaitForSeconds(_currentSpeedGenerate);
             }
         }
