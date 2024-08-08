@@ -68,10 +68,6 @@ public class GameplayLifetimeScope : LifetimeScope
             .InputType;
         switch (input)
         {
-            case InputType.Editor:
-                builder
-                    .RegisterEntryPoint<EditorInputService>();
-                break;
             case InputType.MobileAcceleration:
                 builder
                     .RegisterEntryPoint<MobileInputService>();

@@ -7,6 +7,6 @@ namespace Infrastructure.Service.Input
         public event Action<float> OnMove;
 
         public void MoveClick(float direction) =>
-            OnMove?.Invoke(direction);
+            OnMove?.Invoke(direction * 4);
     }
 }

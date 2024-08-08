@@ -23,7 +23,7 @@ namespace UI
             SetActive(_settings.IsFps ? _fpsOn : _fpsOff);
             switch (_settings.InputType)
             {
-                case InputType.Editor or InputType.MobileButton:
+                case InputType.MobileButton:
                     SetActive(_inputButton);
                     break;
                 case InputType.MobileAcceleration:

@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: DefaultEditorSettings
   m_EditorClassIdentifier: 
   Settings:
-    IsSound: 1
     IsFps: 1
-    InputType: 0
+    InputType: 2

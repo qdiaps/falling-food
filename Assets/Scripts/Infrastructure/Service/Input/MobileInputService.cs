@@ -17,7 +17,7 @@ namespace Infrastructure.Service.Input
         public void Tick()
         {
             var input = Accelerometer.current.acceleration.ReadValue();
-            OnMove?.Invoke(input.x);
+            OnMove?.Invoke(input.x * 7);
         }
     }
 }
